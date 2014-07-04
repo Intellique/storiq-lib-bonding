@@ -1,0 +1,10 @@
+Package: storiq-lib-bonding
+Version: 0.6-3
+Section: Intellique
+Priority: optional
+Architecture: all
+Depends: storiq-lib-network(>=0.3)
+Maintainer: Developpers Team <dev@intellique.com>
+Description: storiq-lib-bonding
+ This library permits to developpers to manage bonding interfaces easily.
+
