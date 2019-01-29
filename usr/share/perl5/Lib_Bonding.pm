@@ -64,7 +64,7 @@ my @xmit_mode_tab = ( 'balance-xor', '802.3ad', );
 # xmit_hash_policy policy values
 my @xmit_values_tab = ( 'layer2', 'layer2+3', 'layer3+4', );
 
-# Fonction qui recupere la liste des bonds actuellement presents
+# Fonction qui recupere la liste des bonds actuellement PRESENTS au niveau NOYAU
 # Cette fonction ne prend rien en parametre
 # Elle retourne un tableau contenant la liste des bonds ou
 # un tableau contenant un zero et un message d'erreur en cas d'echec
@@ -397,7 +397,7 @@ sub _del_opt {
 # un fichier
 sub _get_opt {
     my ($file) = @_;
-    my @return_tab;
+	my @return_tab;
 
     open( FILE, $file ) or return ( 1, $error_hash->{1} . $file );
 
@@ -452,8 +452,8 @@ sub _add_del_iface {
         # ifdown l'interface cree un bug.. je laisse le code
         # au cas ou.. correction du bug #281
         # 	# L'interface doit etre down pour l'ajout
-        # 	($error, $error_msg) = Lib_Network::ifdown($iface);
-        # 	return ($error, $error_msg) if ($error);
+        ($error, $error_msg) = Lib_Network::ifdown($iface);
+        return ($error, $error_msg) if ($error);
 
         ( $error, $error_msg ) = _add_opt( $bond, $SLAVE_FILE, $iface );
     }

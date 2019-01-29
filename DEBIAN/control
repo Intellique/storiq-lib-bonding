@@ -1,5 +1,5 @@
 Package: storiq-lib-bonding
-Version: 0.6-3
+Version: 0.8
 Section: Intellique
 Priority: optional
 Architecture: all
